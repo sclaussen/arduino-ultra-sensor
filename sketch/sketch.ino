@@ -1,9 +1,14 @@
+#include "NewPing.h"
+
 int ultrasonicSensorTriggerPin = 13;
 int ultrasonicSensorEchoPin = 11;
+int maximumDistance = 400;
 
 float duration;
 float distance;
 float rate;
+
+NewPing sonar(ultrasonicSensorTriggerPin, ultrasonicSensorEchoPin, maximumDistance);
 
 void setup() {
   Serial.begin(9600);
@@ -12,14 +17,7 @@ void setup() {
 }
 
 void loop() {
-  digitalWrite(ultrasonicSensorTriggerPin, LOW);
-  delayMicroseconds(2);
-  digitalWrite(ultrasonicSensorTriggerPin, HIGH);
-  delayMicroseconds(10);
-  digitalWrite(ultrasonicSensorTriggerPin, LOW);
-
-  duration = pulseIn(ultrasonicSensorEchoPin, HIGH);
-  distance = (duration / 2) * .0343;
+  distance = sonar.ping_cm();
 
   Serial.print("Distance: ");
   if (distance >= 400 || distance <= 2) {
