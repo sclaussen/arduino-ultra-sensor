@@ -9,6 +9,8 @@ float duration;
 float distance;
 float rate;
 
+int iterations = 5;
+
 NewPing sonar(ultrasonicSensorTriggerPin, ultrasonicSensorEchoPin, maximumDistance);
 
 void setup() {
@@ -18,7 +20,7 @@ void setup() {
 }
 
 void loop() {
-  duration = sonar.ping();
+  duration = sonar.ping_median(iterations);
 
   // 0.0343 meters per second is the speed of sound
   distance = (duration / 2) * .0343;
