@@ -18,7 +18,10 @@ void setup() {
 }
 
 void loop() {
-  distance = sonar.ping_cm();
+  duration = sonar.ping();
+
+  // 0.0343 meters per second is the speed of sound
+  distance = (duration / 2) * .0343;
 
   Serial.print("Distance: ");
   if (distance >= 400 || distance <= 2) {
@@ -28,5 +31,5 @@ void loop() {
     Serial.println("cm");
   }
 
-  delay(1000);
+  delay(500);
 }
