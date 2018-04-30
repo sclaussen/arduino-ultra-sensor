@@ -9,14 +9,14 @@
 // HC-SR04 Ultrasonic Sensor Pins
 // VCC    5V
 // TRIG   11
-// ECHO   13
+// ECHO   11
 // GND    GND
 
 // Constants
 #define DHT_PIN 7
 #define DHT_TYPE DHT22  // aka AM2302
 
-#define ULTRASONIC_SENSOR_TRIGGER_PIN 13
+#define ULTRASONIC_SENSOR_TRIGGER_PIN 11
 #define ULTRASONIC_SENSOR_ECHO_PIN 11
 #define MAXIMUM_DISTANCE 400
 
