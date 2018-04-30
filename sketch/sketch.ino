@@ -75,7 +75,7 @@ void loop() {
   Serial.print(" m/s");
 
   // Distance
-  distance = (duration / 2) * (soundMetersPerSecond / 10000);
+  distance = duration * soundMetersPerSecond / 10000;
   Serial.print("  Distance: ");
   if (distance >= 400 || distance <= 2) {
     Serial.println("OOR");
